@@ -10,15 +10,23 @@ public class Message {
 
     @MongoId
     private String id;
-    private final String text;
-    private final String creator;
-    private final LocalDateTime createdOn;
+    private String text;
+    private String creator;
+    private LocalDateTime createdOn;
+
+    public Message(final String text, final String creator, final LocalDateTime createdOn) {
+        this.text = text;
+        this.creator = creator;
+        this.createdOn = createdOn;
+    }
 
     public Message(final String text, final String creator) {
         this.text = text;
         this.creator = creator;
         this.createdOn = LocalDateTime.now();
     }
+
+    public Message() { }
 
     public String getId() {
         return id;
