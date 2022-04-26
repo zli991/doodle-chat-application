@@ -9,21 +9,20 @@ public class Message {
 
     private String text;
     private String creator;
-    private final LocalDateTime createdOn;
-
-    public Message() {
-        this.createdOn = LocalDateTime.now();
-    }
-
-    public Message(final String text, final String creator) {
-        this(text, creator, LocalDateTime.now());
-    }
+    private LocalDateTime createdOn = LocalDateTime.now();
 
     public Message(final String text, final String creator, final LocalDateTime createdOn) {
         this.text = text;
         this.creator = creator;
         this.createdOn = createdOn;
     }
+
+    public Message(final String text, final String creator) {
+        this.text = text;
+        this.creator = creator;
+    }
+
+    public Message() { }
 
     public String getText() {
         return text;
