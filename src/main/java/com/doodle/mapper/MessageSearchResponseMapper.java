@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,8 +22,10 @@ public class MessageSearchResponseMapper {
     }
 
     public Page<MessageSearchResponse> convertToMessageSearchResponsePage(final Page<Message> messagePage) {
+        final ArrayList<Message> messages = new ArrayList<>(messagePage.getContent());
+        Collections.reverse(messages);
         return new PageImpl<>(
-                convertToMessageSearchResponse(messagePage.getContent()),
+                convertToMessageSearchResponse(messages),
                 messagePage.getPageable(),
                 messagePage.getTotalElements());
     }

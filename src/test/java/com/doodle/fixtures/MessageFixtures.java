@@ -15,7 +15,7 @@ public final class MessageFixtures {
         return List.of(
                 new Message("message 1", "creator1", LocalDateTime.of(2022, 4, 20, 5,23)),
                 new Message("message 2", "creator2", LocalDateTime.of(2019, 10, 5, 10,49)),
-                new Message("message 3", "creator3", LocalDateTime.now()),
+                new Message("message 3", "creator3"),
                 new Message("message 4", "creator4", LocalDateTime.of(2021, 7, 14, 21,54)),
                 new Message("message 5", "creator5", LocalDateTime.of(2018, 2, 1, 14,22)),
                 new Message("message 6", "creator6", LocalDateTime.of(2022, 9, 21, 9,15)),

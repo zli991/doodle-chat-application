@@ -17,7 +17,7 @@ public class MessageSearchResponseMapperTest {
     @Test
     void should_convert_message_page_to_message_search_response_page() {
         // given
-        final var message = new Message("test message", "dummyUser", LocalDateTime.now());
+        final var message = new Message("test message", "dummyUser");
         final var page = new PageImpl<>(List.of(message));
         // when
         final var messageSearchResponses = mapper.convertToMessageSearchResponsePage(page);

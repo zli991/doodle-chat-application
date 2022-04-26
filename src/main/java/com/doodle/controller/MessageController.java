@@ -5,13 +5,11 @@ import com.doodle.dto.MessageSearchResponse;
 import com.doodle.model.Message;
 import com.doodle.service.MessageService;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController()
 @RequestMapping("/messages")
+@CrossOrigin(origins = "http://localhost:4200")
 public class MessageController {
 
     private final MessageService messageService;

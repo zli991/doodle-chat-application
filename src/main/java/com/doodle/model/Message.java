@@ -14,19 +14,20 @@ public class Message {
     private String creator;
     private LocalDateTime createdOn;
 
-    public Message(final String text, final String creator, final LocalDateTime createdOn) {
-        this.text = text;
-        this.creator = creator;
-        this.createdOn = createdOn;
-    }
-
-    public Message(final String text, final String creator) {
-        this.text = text;
-        this.creator = creator;
+    public Message() {
         this.createdOn = LocalDateTime.now();
     }
 
-    public Message() { }
+    public Message(final String text, final String creator) {
+        this();
+        this.text = text;
+        this.creator = creator;
+    }
+
+    public Message(final String text, final String creator, final LocalDateTime createdOn) {
+        this(text, creator);
+        this.createdOn = createdOn;
+    }
 
     public String getId() {
         return id;
