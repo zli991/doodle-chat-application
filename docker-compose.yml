@@ -1,0 +1,31 @@
+# File stolen from https://github.com/imonbayazid/angular-spring-mongo-docker
+version: '3'
+services:
+  #************Mongo DB***************
+  database_mongo:
+    container_name: mongo_container
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_DATABASE=chatApp
+    volumes:
+      - ./mongodb_data_container:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - doodle-chat-application
+  #************Backend***************
+  backend_spring:
+    container_name: spring_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - database_mongo
+    networks:
+      - doodle-chat-application
+
+networks:
+  doodle-chat-application:
+    driver: bridge
