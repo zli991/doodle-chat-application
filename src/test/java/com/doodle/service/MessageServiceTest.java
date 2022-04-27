@@ -43,17 +43,17 @@ public class MessageServiceTest {
     }
 
     @Test
-    void should_return_page_with_number_of_elements_provided_in_search_options() {
+    void should_return_desired_page_if_page_number_is_provided() {
         // given
         var options = MessageSearchOptionsFixtures.searchOptions();
         when(messageRepositoryMock.findAll(any(PageRequest.class))).thenReturn(MessageFixtures.getMessagesPage(options.createPageRequest()));
         // when
-        var response = messageService.findAll(options);
+        var response = messageService.findAll(1);
         // then
         assertNotNull(response.getContent());
         assertNotNull(response.getPageable());
         assertEquals(response.getPageable().getPageNumber(), 1);
-        assertEquals(response.getPageable().getPageSize(), 1);
+        assertEquals(response.getPageable().getPageSize(), 5);
         assertEquals(response.getPageable().getSort(), Sort.by(Sort.Direction.DESC, "createdOn"));
     }
 }

@@ -25,6 +25,6 @@ public class MessageSearchOptionsTest {
         var pageRequest = options.createPageRequest();
         // then
         assertEquals(pageRequest.getPageNumber(), 1);
-        assertEquals(pageRequest.getPageSize(), 1);
+        assertEquals(pageRequest.getPageSize(), 5);
     }
 }

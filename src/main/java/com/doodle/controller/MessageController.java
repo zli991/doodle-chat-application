@@ -1,6 +1,5 @@
 package com.doodle.controller;
 
-import com.doodle.dto.MessageSearchOptions;
 import com.doodle.dto.MessageSearchResponse;
 import com.doodle.model.Message;
 import com.doodle.service.MessageService;
@@ -19,10 +18,10 @@ public class MessageController {
         this.messageService = messageService;
     }
 
-    @PostMapping("/search")
+    @GetMapping
     @Operation(summary = "Returns page with number of results provided in search options. If no options provided, page with first 5 messages will be returned")
-    public Page<MessageSearchResponse> findAll(@RequestBody(required = false) final MessageSearchOptions options) {
-        return messageService.findAll(options);
+    public Page<MessageSearchResponse> findAll(@RequestParam(required = false) final Integer pageNumber) {
+        return messageService.findAll(pageNumber);
     }
 
     @PostMapping

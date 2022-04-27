@@ -6,7 +6,7 @@ public final class MessageSearchOptionsFixtures {
 
     public static MessageSearchOptions searchOptions() {
         final MessageSearchOptions messageSearchOptions = new MessageSearchOptions();
-        messageSearchOptions.setPageOptions(new MessageSearchOptions.PageOptions(1, 1));
+        messageSearchOptions.setPageOptions(new MessageSearchOptions.PageOptions(1));
         return messageSearchOptions;
     }
 }

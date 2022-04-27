@@ -6,6 +6,7 @@ import com.doodle.mapper.MessageSearchResponseMapper;
 import com.doodle.model.Message;
 import com.doodle.repository.MessageRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,8 +20,9 @@ public class MessageService {
         this.searchResponseMapper = searchResponseMapper;
     }
 
-    public Page<MessageSearchResponse> findAll(final MessageSearchOptions searchOptions) {
-        final Page<Message> messagePage = getMessagePage(searchOptions);
+    public Page<MessageSearchResponse> findAll(final Integer pageNumber) {
+        final var pageRequest = createPageRequest(pageNumber);
+        final var messagePage = messageRepository.findAll(pageRequest);;
         return searchResponseMapper.convertToMessageSearchResponsePage(messagePage);
     }
 
@@ -28,10 +30,10 @@ public class MessageService {
         return messageRepository.save(message);
     }
 
-    private Page<Message> getMessagePage(final MessageSearchOptions searchOptions) {
-        if (searchOptions == null) {
-            return messageRepository.findAll(MessageSearchOptions.defaultPageRequest());
+    private PageRequest createPageRequest(final Integer pageNumber) {
+        if (pageNumber != null) {
+            return new MessageSearchOptions(pageNumber).createPageRequest();
         }
-        return messageRepository.findAll(searchOptions.createPageRequest());
+        return MessageSearchOptions.defaultPageRequest();
     }
 }
