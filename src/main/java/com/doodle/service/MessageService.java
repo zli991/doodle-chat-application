@@ -1,6 +1,6 @@
 package com.doodle.service;
 
-import com.doodle.dto.MessageSearchOptions;
+import com.doodle.model.MessageSearchOptions;
 import com.doodle.dto.MessageSearchResponse;
 import com.doodle.mapper.MessageSearchResponseMapper;
 import com.doodle.model.Message;

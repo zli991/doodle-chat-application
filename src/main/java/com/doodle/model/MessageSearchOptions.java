@@ -1,8 +1,12 @@
-package com.doodle.dto;
+package com.doodle.model;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
+/*
+ * Probably not the best package for this class, since it has no business value.
+ * Nevertheless, more suitable than dto package.
+ */
 public class MessageSearchOptions {
 
     private static final String DEFAULT_SORT_COLUMN_NAME = "createdOn";

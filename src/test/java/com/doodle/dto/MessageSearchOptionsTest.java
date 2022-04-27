@@ -1,6 +1,7 @@
 package com.doodle.dto;
 
 import com.doodle.fixtures.MessageSearchOptionsFixtures;
+import com.doodle.model.MessageSearchOptions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

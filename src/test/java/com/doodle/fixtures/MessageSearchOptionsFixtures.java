@@ -1,6 +1,6 @@
 package com.doodle.fixtures;
 
-import com.doodle.dto.MessageSearchOptions;
+import com.doodle.model.MessageSearchOptions;
 
 public final class MessageSearchOptionsFixtures {
 

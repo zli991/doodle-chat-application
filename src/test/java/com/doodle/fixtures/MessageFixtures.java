@@ -1,6 +1,6 @@
 package com.doodle.fixtures;
 
-import com.doodle.dto.MessageSearchOptions;
+import com.doodle.model.MessageSearchOptions;
 import com.doodle.model.Message;
 import com.doodle.model.MessageText;
 import org.springframework.data.domain.Page;
