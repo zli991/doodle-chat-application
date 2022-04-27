@@ -7,17 +7,17 @@ import java.time.LocalDateTime;
 @Document
 public class Message {
 
-    private String text;
+    private MessageText text;
     private String creator;
     private LocalDateTime createdOn = LocalDateTime.now();
 
-    public Message(final String text, final String creator, final LocalDateTime createdOn) {
+    public Message(final MessageText text, final String creator, final LocalDateTime createdOn) {
         this.text = text;
         this.creator = creator;
         this.createdOn = createdOn;
     }
 
-    public Message(final String text, final String creator) {
+    public Message(final MessageText text, final String creator) {
         this.text = text;
         this.creator = creator;
     }
@@ -25,7 +25,7 @@ public class Message {
     public Message() { }
 
     public String getText() {
-        return text;
+        return text.get();
     }
 
     public String getCreator() {
